@@ -1,3 +1,13 @@
-<ul className="timeline" *ngIf="timeline$ | async as timeline">
-  {{ timeline.get('TeamLead') }}
+<ul *ngIf="timeline$ | async as timeline"
+    class="timeline">
+
+  <li *ngFor="let grade of getGrades(timeline)"
+    class="timeline__grade">
+    <grade
+      [grade]="grade"
+      [books]="timeline.get(grade)"
+    >
+    </grade>
+  </li>
+
 </ul>

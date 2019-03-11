@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
+import { filter, map, takeUntil } from 'rxjs/operators';
+
 import { BooksDataService } from '../../../../core/data-services';
-import { Observable, of, Subject } from 'rxjs';
+
 import { BookDto } from '../../../../core/data-services/books/dto';
-import { filter, map, switchMap, takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'time-line',
@@ -15,7 +17,7 @@ export class TimeLineComponent {
 
   private destroy$ = new Subject<void>();
 
-  public timeline$: Observable<Map<string, BookDto[]>> = this.books$
+  public readonly timeline$: Observable<Map<string, BookDto[]>> = this.books$
     .pipe(
       filter(books => !!books.length),
       map(
@@ -34,10 +36,15 @@ export class TimeLineComponent {
 
             return timelineMap.set(book.grade, [book]);
 
-          }, new Map()
+          }, new Map<string, BookDto[]>()
         )
       )
     ) as Observable<Map<string, BookDto[]>>;
+
+  public readonly grades$: Observable<string[]> = this.timeline$
+    .pipe(
+      map((timelineMap: Map<string, BookDto[]>) => Array.from(timelineMap.keys()))
+    );
 
   constructor(
     private booksDataService: BooksDataService
@@ -49,4 +56,7 @@ export class TimeLineComponent {
       .subscribe(books => this.books$.next(books));
   }
 
+  public getGrades(timeline: Map<string, BookDto[]>): string[] {
+    return Array.from(timeline.keys());
+  }
 }
