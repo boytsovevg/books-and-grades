@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { BookDto } from '../../../../core/data-services/books/dto';
+import { Grade } from '../../../../core/enums';
 
 @Component({
   selector: 'grade',
@@ -8,6 +9,6 @@ import { BookDto } from '../../../../core/data-services/books/dto';
 })
 export class GradeComponent {
 
-  @Input() grade: string;
+  @Input() grade: Grade;
   @Input() books: BookDto[];
 }
