@@ -1,0 +1,3 @@
+<ul className="timeline" *ngIf="timeline$ | async as timeline">
+  {{ timeline.get('TeamLead') }}
+</ul>
