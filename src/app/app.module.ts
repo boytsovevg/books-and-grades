@@ -3,21 +3,25 @@ import { NgModule } from '@angular/core';
 
 import { CoreModule } from './core/core.module';
 import { TimeLineModule } from './pages';
+import { HeaderModule } from './components';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CoreModule,
-    TimeLineModule
+    TimeLineModule,
+    HeaderModule
+  ],
+  declarations: [
+    AppComponent
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }
