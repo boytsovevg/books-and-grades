@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { filter, map, takeUntil } from 'rxjs/operators';
 
@@ -12,7 +12,7 @@ import { Grade } from '../../../../core/enums';
   templateUrl: './time-line.component.html',
   styleUrls: ['./time-line.component.scss']
 })
-export class TimeLineComponent {
+export class TimeLineComponent implements OnDestroy {
 
   private books$ = new Subject<BookDto[]>();
 
@@ -50,6 +50,11 @@ export class TimeLineComponent {
         takeUntil(this.destroy$)
       )
       .subscribe(books => this.books$.next(books));
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 
   public getGrades(timeline: Map<Grade, BookDto[]>): Grade[] {

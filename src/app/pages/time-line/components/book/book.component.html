@@ -1,3 +1,20 @@
-<p>
-  book works!
-</p>
+<div class="book">
+  <div class="book__image-container">
+    <img class="book__image"
+         width="270"
+         height="400"
+         [src]="book.url"
+         [alt]="book.title"
+    />
+  </div>
+
+  <div class="book__info">
+    <div>{{ book.title }}</div>
+    <div>{{ book.author }}</div>
+    <div>
+      <span>Количество страниц: </span>
+      <span>{{ book.pagesNumber }}</span>
+    </div>
+  </div>
+
+</div>

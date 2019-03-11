@@ -1,0 +1,7 @@
+.grade__books {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  grid-auto-rows: minmax(400px, auto);
+  grid-gap: 2em;
+  max-width: 1280px;
+}

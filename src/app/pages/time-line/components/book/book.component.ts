@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+
+import { BookDto } from '../../../../core/data-services/books/dto';
+import { ProgressUpdateModel } from '../../models';
 
 @Component({
   selector: 'book',
   templateUrl: './book.component.html',
   styleUrls: ['./book.component.scss']
 })
-export class BookComponent implements OnInit {
+export class BookComponent {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  @Input() book: BookDto;
+  @Output() progressUpdate = new EventEmitter<ProgressUpdateModel>();
 }
