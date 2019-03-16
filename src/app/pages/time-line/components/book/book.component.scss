@@ -2,8 +2,6 @@
 
 .book {
 
-  position: relative;
-
   &__image-container {
     position: relative;
     width: 270px;
@@ -17,8 +15,6 @@
   &__progress {
     position: absolute;
     top: 0;
-    right: 0;
-    height: 400px;
     filter: blur(.3px);
   }
 

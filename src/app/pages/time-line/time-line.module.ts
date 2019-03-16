@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { CoreModule } from '../../core/core.module';
-import { BookComponent, GradeComponent, TimeLineComponent } from './components';
+import { BookComponent, BookProgressComponent, GradeComponent, TimeLineComponent } from './components';
 
 @NgModule({
   imports: [
@@ -13,6 +13,7 @@ import { BookComponent, GradeComponent, TimeLineComponent } from './components';
     TimeLineComponent,
     BookComponent,
     GradeComponent,
+    BookProgressComponent,
   ],
   exports: [
     TimeLineComponent

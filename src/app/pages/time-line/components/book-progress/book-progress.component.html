@@ -1,0 +1,11 @@
+<div>
+  {{ progress  }}
+  /
+  {{ pages }}
+</div>
+
+<input
+  (input)="progressUpdate.next($event.target.value)"
+  class="book-progress__input"
+  type="number"
+>

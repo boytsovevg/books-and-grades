@@ -1,11 +1,25 @@
-<div class="book">
-  <div class="book__image-container">
-    <img class="book__image"
-         width="270"
-         height="400"
-         [src]="book.url"
-         [alt]="book.title"
+<div
+  (mouseenter)="showProgress$.next(true)"
+  (mouseleave)="showProgress$.next(false)"
+  class="book">
+
+  <div class="book__image-container"
+  >
+    <img
+      [src]="book.url"
+      [alt]="book.title"
+      width="270"
+      height="400"
+      class="book__image"
     />
+
+    <book-progress *ngIf="showProgress$ | async"
+      [progress]="0"
+      [pages]="book.pagesNumber"
+      (progressUpdate)="updateBookProgress($event)"
+      class="book__progress book_shadowed"
+    >
+    </book-progress>
   </div>
 
   <div class="book__info">
