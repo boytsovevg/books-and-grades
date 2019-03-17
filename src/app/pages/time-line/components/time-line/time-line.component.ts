@@ -15,7 +15,6 @@ import { Grade } from '../../../../core/enums';
 export class TimeLineComponent implements OnDestroy {
 
   private books$ = new Subject<BookDto[]>();
-
   private destroy$ = new Subject<void>();
 
   public readonly timeline$: Observable<Map<Grade, BookDto[]>> = this.books$

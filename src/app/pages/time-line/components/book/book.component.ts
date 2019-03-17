@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Subject } from 'rxjs';
 
 import { BookDto } from '../../../../core/data-services/books/dto';
 import { ProgressUpdateModel } from '../../models';
-import { Subject } from 'rxjs';
 
 @Component({
   selector: 'book',
