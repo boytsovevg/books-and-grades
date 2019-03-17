@@ -5,7 +5,8 @@ import { switchMap, takeUntil } from 'rxjs/operators';
 import { BooksDataService } from '../../../../core/data-services';
 import { BookDto, BookProgressDto } from '../../../../core/data-services/books/dto';
 import { Grade } from '../../../../core/enums';
-import { ProgressUpdateModel } from '../../models';
+
+import { BookProgressModel } from '../../models';
 
 @Component({
   selector: 'grade',
@@ -19,10 +20,10 @@ export class GradeComponent implements OnInit {
 
   public booksProgress$ = new Subject<BookProgressDto[]>();
 
-  public progressUpdate$ = new Subject<ProgressUpdateModel>()
+  public progressUpdate$ = new Subject<BookProgressModel>()
     .pipe(
       switchMap(
-        (progress: ProgressUpdateModel) => this.booksDataService.updateBookProgress(progress)
+        (progress: BookProgressModel) => this.booksDataService.updateBookProgress(progress)
       )
     );
 

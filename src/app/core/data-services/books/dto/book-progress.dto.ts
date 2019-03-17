@@ -1,5 +1,5 @@
 export interface BookProgressDto {
-  id: number;
+  bookId: number;
   status: string;
-  progress: number;
+  pagesCount: number;
 }

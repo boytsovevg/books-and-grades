@@ -7,5 +7,5 @@ export interface BookDto {
   url: string;
   grade: Grade;
   type: string;
-  pagesNumber: number;
+  pagesCount: number;
 }

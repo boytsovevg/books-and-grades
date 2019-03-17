@@ -14,8 +14,8 @@
     />
 
     <book-progress *ngIf="showProgress$ | async"
-      [progress]="0"
-      [pages]="book.pagesNumber"
+      [pagesProgress]="0"
+      [bookPagesCount]="book.pagesCount"
       (progressUpdate)="updateBookProgress($event)"
       class="book__progress book_shadowed"
     >
@@ -27,7 +27,7 @@
     <div>{{ book.author }}</div>
     <div>
       <span>Количество страниц: </span>
-      <span>{{ book.pagesNumber }}</span>
+      <span>{{ book.pagesCount }}</span>
     </div>
   </div>
 

@@ -7,8 +7,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class BookProgressComponent {
 
-  @Input() progress: number;
-  @Input() pages: number;
-  @Output() progressUpdate = new EventEmitter<unknown>();
-
+  @Input() pagesProgress: number;
+  @Input() bookPagesCount: number;
+  @Output() progressUpdate = new EventEmitter<number>();
 }

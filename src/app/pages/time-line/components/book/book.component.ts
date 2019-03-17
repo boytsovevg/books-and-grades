@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Subject } from 'rxjs';
 
 import { BookDto } from '../../../../core/data-services/books/dto';
-import { ProgressUpdateModel } from '../../models';
+import { BookProgressModel } from '../../models';
 
 @Component({
   selector: 'book',
@@ -12,11 +12,11 @@ import { ProgressUpdateModel } from '../../models';
 export class BookComponent {
 
   @Input() book: BookDto;
-  @Output() progressUpdate = new EventEmitter<ProgressUpdateModel>();
+  @Output() progressUpdate = new EventEmitter<BookProgressModel>();
 
   public showProgress$ = new Subject<boolean>();
 
   public updateBookProgress(pagesCount: number): void {
-    this.progressUpdate.emit({ id: this.book.id, pagesCount });
+    this.progressUpdate.emit({ bookId: this.book.id, pagesCount });
   }
 }

@@ -1,1 +1,1 @@
-export { ProgressUpdateModel } from './progress-update.model';
+export { BookProgressModel } from './book-progress.model';
