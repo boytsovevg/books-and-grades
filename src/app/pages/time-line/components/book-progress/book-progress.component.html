@@ -5,7 +5,7 @@
 </div>
 
 <input
-  (input)="progressUpdate.next($event.target.value)"
+  (keyup.enter)="updateProgress($event.target.value)"
   class="book-progress__input"
   type="number"
 >

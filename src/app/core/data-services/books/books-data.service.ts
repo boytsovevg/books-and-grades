@@ -20,7 +20,7 @@ export class BooksDataService {
   }
 
   public updateBookProgress({bookId, pagesCount}: BookProgressModel): Observable<unknown> {
-    return this.http.patch(`${this.baseUrl}/${bookId}/progress/update`, { pagesCount });
+    return this.http.patch(`${this.baseUrl}/${bookId}/progress`, { bookId, pagesCount });
   }
 
   public getBooksProgress(bookIds: number[]): Observable<BookProgressDto[]> {

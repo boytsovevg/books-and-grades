@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { switchMap, takeUntil } from 'rxjs/operators';
 
 import { BooksDataService } from '../../../../core/data-services';
@@ -19,19 +19,20 @@ export class GradeComponent implements OnInit {
   @Input() books: BookDto[];
 
   public booksProgress$ = new Subject<BookProgressDto[]>();
-
-  public progressUpdate$ = new Subject<BookProgressModel>()
-    .pipe(
-      switchMap(
-        (progress: BookProgressModel) => this.booksDataService.updateBookProgress(progress)
-      )
-    );
+  public progressUpdate$ = new Subject<BookProgressModel>();
 
   private destroy$ = new Subject<void>();
 
   constructor(
     private booksDataService: BooksDataService
-  ) { }
+  ) {
+    this.progressUpdate$
+      .pipe(
+        takeUntil(this.destroy$),
+        switchMap((progress: BookProgressModel) => this.booksDataService.updateBookProgress(progress))
+      )
+      .subscribe(result => console.log(result));
+  }
 
   ngOnInit() {
     this.booksDataService.getBooksProgress(this.books.map(book => book.id))
