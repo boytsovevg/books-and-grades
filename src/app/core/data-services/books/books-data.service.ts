@@ -9,7 +9,7 @@ import { BookDto, BookProgressDto } from './dto';
 @Injectable()
 export class BooksDataService {
 
-  private readonly baseUrl = 'api/books';
+  private readonly baseUrl = 'api/v1/books';
 
   constructor(
     private http: HttpClient
@@ -24,11 +24,11 @@ export class BooksDataService {
   }
 
   public getBooksProgress(bookIds: number[]): Observable<BookProgressDto[]> {
-    const params = new HttpParams();
+    let params = new HttpParams();
 
-    bookIds.forEach(
-      id => params.append('ids', id.toString())
-    );
+    bookIds.forEach(id => {
+      params = params.append('ids', id.toString());
+    });
 
     return this.http.get(`${this.baseUrl}/progress`, { params }) as Observable<BookProgressDto[]>;
   }

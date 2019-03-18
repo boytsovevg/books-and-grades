@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 import { switchMap, takeUntil } from 'rxjs/operators';
 
 import { BooksDataService } from '../../../../core/data-services';
