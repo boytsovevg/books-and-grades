@@ -1,9 +1,9 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
-import { CoreModule } from './core/core.module';
-import { TimeLineModule } from './pages';
 import { HeaderModule } from './components';
+import { CoreModule } from './core/core.module';
+import { AuthModule, TimeLineModule } from './pages';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,13 +13,13 @@ import { AppComponent } from './app.component';
     BrowserModule,
     AppRoutingModule,
     CoreModule,
+    AuthModule,
     TimeLineModule,
     HeaderModule
   ],
   declarations: [
     AppComponent
   ],
-  providers: [],
   bootstrap: [
     AppComponent
   ]

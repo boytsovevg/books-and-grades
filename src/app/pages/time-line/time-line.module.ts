@@ -4,11 +4,13 @@ import { NgModule } from '@angular/core';
 import { CoreModule } from '../../core/core.module';
 
 import { BookComponent, BookProgressComponent, GradeComponent, TimeLineComponent } from './components';
+import { TimeLineRoutingModule } from './time-line-routing.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    CoreModule
+    CoreModule,
+    TimeLineRoutingModule
   ],
   declarations: [
     TimeLineComponent,
@@ -17,7 +19,8 @@ import { BookComponent, BookProgressComponent, GradeComponent, TimeLineComponent
     BookProgressComponent,
   ],
   exports: [
-    TimeLineComponent
+    TimeLineComponent,
+    TimeLineRoutingModule
   ]
 })
 export class TimeLineModule { }

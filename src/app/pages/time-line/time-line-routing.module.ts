@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { TimeLineComponent } from './components';
+
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: '/timeline',
-    pathMatch: 'full'
-  },
+    path: 'timeline',
+    component: TimeLineComponent
+  }
 ];
 
 @NgModule({
@@ -17,4 +18,4 @@ const routes: Routes = [
     RouterModule
   ]
 })
-export class AppRoutingModule { }
+export class TimeLineRoutingModule { }
