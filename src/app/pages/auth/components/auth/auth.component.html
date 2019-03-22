@@ -1,10 +1,20 @@
 <div [ngSwitch]="authActive$ | async"
   class="switch">
-  <button (click)="authActive$.next(authType.login)">Log In</button>
-  <button (click)="authActive$.next(authType.signup)">Sign Up</button>
+  <button
+    (click)="authActive$.next(authType.login)"
+    class="button button_rect button_md"
+  >
+    Log In
+  </button>
+  <button
+    (click)="authActive$.next(authType.signup)"
+    class="button button_rect button_md"
+  >
+    Sign Up
+  </button>
 
   <bag-login *ngSwitchCase="authType.login"></bag-login>
   <bag-signup *ngSwitchCase="authType.signup"></bag-signup>
 </div>
 
-<button>Start Reading</button>
+<button class="button button_md">Start Reading</button>

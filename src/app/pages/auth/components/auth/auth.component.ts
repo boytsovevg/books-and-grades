@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 import { AuthType } from '../../enums';
@@ -8,15 +8,9 @@ import { AuthType } from '../../enums';
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.scss']
 })
-export class AuthComponent implements OnInit {
-
-  public authActive$ = new BehaviorSubject<string>(AuthType.login);
+export class AuthComponent {
 
   public readonly authType = AuthType;
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  public authActive$ = new BehaviorSubject<string>(AuthType.login);
 }
