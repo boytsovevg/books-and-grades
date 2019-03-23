@@ -13,7 +13,13 @@
     Sign Up
   </button>
 
-  <bag-login *ngSwitchCase="authType.login"></bag-login>
-  <bag-signup *ngSwitchCase="authType.signup"></bag-signup>
+  <grades-login *ngSwitchCase="authType.login"
+    (logIn)="logIn$.next($event)"
+  >
+  </grades-login>
+  <grades-signup *ngSwitchCase="authType.signup"
+     (signUp)="signUp$.next($event)"
+  >
+  </grades-signup>
 </div>
 

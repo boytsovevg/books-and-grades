@@ -10,7 +10,7 @@ import { AuthModel, SignUpModel } from '../../models';
 // }
 
 @Component({
-  selector: 'bag-signup',
+  selector: 'grades-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss']
 })

@@ -7,7 +7,7 @@
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
-      "prefix": "bag",
+      "prefix": "grades",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"

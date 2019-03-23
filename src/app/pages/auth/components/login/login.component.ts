@@ -4,7 +4,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { AuthModel } from '../../models';
 
 @Component({
-  selector: 'bag-login',
+  selector: 'grades-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })

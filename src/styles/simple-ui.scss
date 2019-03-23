@@ -5,8 +5,7 @@
 .button {
 
   background-color: transparent;
-  color: $bag-white;
-  margin-top: 20px;
+  color: $grades-white;
   width: 100%;
   font-size: $font-size;
 
@@ -25,11 +24,10 @@
 .form-input {
   width: 100%;
   box-sizing: border-box;
-  margin-bottom: 10px;
   padding: 15px;
   background-color: transparent;
-  border: 1px solid $bag-white;
-  color: $bag-white;
+  border: 1px solid $grades-white;
+  color: $grades-white;
   font-size: $font-size;
 }
 

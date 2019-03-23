@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { AuthDataService } from './auth-data.service';
 import { AuthRoutingModule } from './auth-routing.module';
 import { AuthComponent, LoginComponent, SignupComponent } from './components';
 
@@ -11,6 +12,9 @@ import { AuthComponent, LoginComponent, SignupComponent } from './components';
     AuthRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+  ],
+  providers: [
+    AuthDataService
   ],
   declarations: [
     LoginComponent,
