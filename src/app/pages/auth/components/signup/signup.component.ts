@@ -1,7 +1,13 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 
 import { AuthModel, SignUpModel } from '../../models';
+//
+// function PasswordConfirmMatchValidate(passwordControl: AbstractControl): ValidationErrors | null {
+//   return passwordControl.get('passwordValue') === passwordControl.get('passwordConfirm') ?
+//     null :
+//     { confirmPasswordInvalid: true };
+// }
 
 @Component({
   selector: 'bag-signup',
@@ -12,11 +18,15 @@ export class SignupComponent {
 
   @Output() signUp = new EventEmitter<AuthModel>();
 
-  public signUpForm = new FormGroup({
-    email: new FormControl(''),
-    password: new FormControl(''),
-    confirmPassword: new FormControl('')
+  public signUpForm = this.fb.group({
+    email: ['' , Validators.required],
+    password: ['', Validators.required],
+    passwordConfirm: ['', Validators.required]
   });
+
+  constructor(
+    private fb: FormBuilder
+  ) { }
 
   public onSubmit({email, password}: SignUpModel): void {
     this.signUp.emit({ email, password });

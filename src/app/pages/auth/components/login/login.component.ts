@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 
 import { AuthModel } from '../../models';
 
@@ -12,9 +12,13 @@ export class LoginComponent {
 
   @Output() logIn = new EventEmitter<AuthModel>();
 
-  public logInForm = new FormGroup({
-    email: new FormControl(''),
-    password: new FormControl(''),
+  public logInForm = this.fb.group({
+    email: ['' , Validators.required],
+    password: ['', Validators.required],
   });
+
+  constructor(
+    private fb: FormBuilder
+  ) { }
 
 }
