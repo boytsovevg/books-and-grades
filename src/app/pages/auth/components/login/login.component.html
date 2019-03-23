@@ -1,13 +1,22 @@
 <h2>LOGIN</h2>
 
-<input
-  class="form-input"
-  placeholder="Login or E-mail"
-  type="text">
+<form
+  (ngSubmit)="logIn.emit(logInForm.value)"
+  [formGroup]="logInForm">
+  <input
+    formControlName="email"
+    class="form-input"
+    placeholder="E-mail"
+    type="text">
 
-<input
-  class="form-input"
-  placeholder="Password"
-  type="password">
+  <input
+    formControlName="password"
+    class="form-input"
+    placeholder="Password"
+    type="password">
 
-<button class="button button_md">Log in</button>
+  <button
+    [disabled]="!logInForm.valid"
+    type="submit"
+    class="button button_md">Log in</button>
+</form>

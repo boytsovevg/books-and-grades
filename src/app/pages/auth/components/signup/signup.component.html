@@ -1,18 +1,28 @@
 <h2>SIGN UP</h2>
 
-<input
-  class="form-input"
-  placeholder="E-mail"
-  type="text">
+<form
+  (ngSubmit)="onSubmit(signUpForm.value)"
+  [formGroup]="signUpForm">
+  <input
+    formControlName="email"
+    class="form-input"
+    placeholder="E-mail"
+    type="text">
 
-<input
-  class="form-input"
-  placeholder="Password"
-  type="password">
+  <input
+    formControlName="password"
+    class="form-input"
+    placeholder="Password"
+    type="password">
 
-<input
-  class="form-input"
-  placeholder="Confirm password"
-  type="password">
+  <input
+    formControlName="confirmPassword"
+    class="form-input"
+    placeholder="Confirm password"
+    type="password">
 
-<button class="button button_md">Log in</button>
+  <button
+    [disabled]="!signUpForm.valid"
+    type="submit"
+    class="button button_md">Sign up</button>
+</form>
