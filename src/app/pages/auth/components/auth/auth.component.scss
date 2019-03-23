@@ -1,5 +1,3 @@
-@import '../../../../../styles/variables';
-
 :host {
   display: flex;
   flex-direction: column;
@@ -9,21 +7,4 @@
 
 .switch > button {
   width: 50%;
-}
-
-.button {
-
-  background-color: transparent;
-  color: $bag-white;
-  padding-top: 10px;
-  width: 100%;
-  font-size: $font-size;
-
-  &_rect {
-    border-radius: 0;
-  }
-
-  &_md {
-    padding: 20px 50px;
-  }
 }
