@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { switchMap, takeUntil } from 'rxjs/operators';
 
@@ -32,9 +33,11 @@ export class AuthComponent {
     );
 
   constructor(
-    private authService: AuthDataService
+    private authService: AuthDataService,
+    private router: Router
   ) {
     this.logIn$.subscribe(data => console.log('log in data: ', data));
-    this.signUp$.subscribe(data => console.log('sign up data', data));
+
+    this.signUp$.subscribe(() => this.router.navigateByUrl('/timeline'));
   }
 }

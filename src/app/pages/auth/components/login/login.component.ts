@@ -13,7 +13,7 @@ export class LoginComponent {
   @Output() logIn = new EventEmitter<AuthModel>();
 
   public logInForm = this.fb.group({
-    email: ['' , Validators.required],
+    login: ['' , Validators.required],
     password: ['', Validators.required],
   });
 
